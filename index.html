@@ -3,720 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gabriella Victória — 15 Anos</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        overflow: hidden;
+        background:
+            radial-gradient(
+                circle at 50% 45%,
+                rgba(31, 45, 70, 0.30) 0%,
+                rgba(10, 17, 29, 0.12) 34%,
+                rgba(3, 7, 13, 0) 65%
+            ),
+            #050914;
+
+        font-family: Georgia, "Times New Roman", serif;
+        color: #e7e8e9;
+    }
+
+    .capa {
+        position: relative;
+        width: 100%;
+        height: 100svh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255,255,255,0.018) 0%,
+                transparent 35%,
+                rgba(255,255,255,0.012) 70%,
+                transparent 100%
+            );
+    }
+
+    /*
+        Textura extremamente sutil,
+        para o fundo não parecer um azul chapado.
+    */
+    .capa::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        opacity: 0.18;
+
+        background-image:
+            radial-gradient(
+                rgba(255,255,255,0.12) 0.5px,
+                transparent 0.6px
+            );
 
-html,
-body{
-  width:100%;
-  min-height:100%;
-}
+        background-size: 4px 4px;
+
+        pointer-events: none;
+    }
+
+    /*
+        Pequena iluminação central.
+        Nada de moldura ou elementos decorativos.
+    */
+    .capa::after {
+        content: "";
+        position: absolute;
 
-body{
-  min-height:100vh;
-  overflow:hidden;
-  background:
-    radial-gradient(
-      ellipse at 50% 42%,
-      #17233a 0%,
-      #0b1220 48%,
-      #030711 100%
-    );
-}
+        width: min(70vw, 520px);
+        height: min(70vw, 520px);
 
-/* ==================================================
-   CENA
-================================================== */
+        border-radius: 50%;
 
-.cena{
-  width:100%;
-  min-height:100vh;
+        background: rgba(115, 135, 165, 0.035);
+        filter: blur(80px);
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+        pointer-events: none;
+    }
 
-  position:relative;
-  overflow:hidden;
+    .conteudo {
+        position: relative;
+        z-index: 2;
 
-  perspective:1800px;
-}
+        width: min(88vw, 700px);
 
-/* luz ambiente */
+        text-align: center;
 
-.cena::before{
-  content:"";
-  position:absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-  width:75%;
-  height:70%;
+        transition:
+            opacity 0.7s ease,
+            transform 0.9s cubic-bezier(.22,.61,.36,1);
+    }
 
-  left:12.5%;
-  top:15%;
+    .nome {
+        font-family:
+            "Times New Roman",
+            Georgia,
+            serif;
 
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(255,255,255,.055),
-      transparent 68%
-    );
+        font-size: clamp(27px, 6vw, 54px);
 
-  filter:blur(35px);
+        font-weight: 400;
 
-  pointer-events:none;
-}
+        letter-spacing: 0.18em;
 
-/* ==================================================
-   SOMBRA NO CHÃO
-================================================== */
+        line-height: 1.15;
 
-.sombra{
-  position:absolute;
+        white-space: nowrap;
 
-  width:min(70vw,390px);
-  height:45px;
+        background:
+            linear-gradient(
+                105deg,
+                #85898d 0%,
+                #f4f4f2 18%,
+                #b8babe 36%,
+                #ffffff 50%,
+                #999da2 67%,
+                #e7e7e5 83%,
+                #777b80 100%
+            );
 
-  left:50%;
-  top:calc(50% + min(35vw,185px));
+        -webkit-background-clip: text;
+        background-clip: text;
 
-  transform:translateX(-50%);
+        color: transparent;
 
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(0,0,0,.72) 0%,
-      rgba(0,0,0,.38) 45%,
-      transparent 75%
-    );
+        filter:
+            drop-shadow(0 1px 1px rgba(0,0,0,0.5));
+    }
 
-  filter:blur(12px);
+    .idade {
+        margin-top: 20px;
 
-  pointer-events:none;
-}
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
 
-/* ==================================================
-   ENVELOPE
-================================================== */
+        font-size: clamp(10px, 2.2vw, 14px);
 
-.envelope{
-  position:relative;
+        font-weight: 400;
 
-  width:min(94vw,520px);
-  aspect-ratio:.70;
+        letter-spacing: 0.55em;
 
-  transform-style:preserve-3d;
+        padding-left: 0.55em;
 
-  transform:
-    rotateX(.8deg)
-    rotateY(-.5deg);
+        color: rgba(214, 216, 219, 0.78);
 
-  z-index:5;
-}
+        text-transform: uppercase;
+    }
 
-/* espessura física */
+    .monograma {
+        margin-top: 58px;
 
-.envelope::before{
-  content:"";
+        font-family:
+            "Times New Roman",
+            Georgia,
+            serif;
 
-  position:absolute;
+        font-size: clamp(70px, 17vw, 150px);
 
-  left:5px;
-  right:-5px;
-  top:5px;
-  bottom:-6px;
+        font-weight: 400;
 
-  border-radius:2px;
+        line-height: 0.8;
 
-  background:
-    linear-gradient(
-      145deg,
-      #071126,
-      #050d1d 55%,
-      #020711
-    );
+        letter-spacing: -0.08em;
 
-  transform:translateZ(-10px);
+        background:
+            linear-gradient(
+                115deg,
+                #73777c 0%,
+                #e8e9e8 25%,
+                #8e9297 47%,
+                #f1f1ef 58%,
+                #73777c 82%,
+                #bfc1c3 100%
+            );
 
-  box-shadow:
-    0 25px 45px rgba(0,0,0,.65);
+        -webkit-background-clip: text;
+        background-clip: text;
 
-  z-index:-2;
-}
+        color: transparent;
 
-/* pequena borda física */
+        opacity: 0.92;
 
-.envelope::after{
-  content:"";
+        filter:
+            drop-shadow(
+                0 2px 3px rgba(0,0,0,0.65)
+            );
+    }
 
-  position:absolute;
+    /*
+        Pequena indicação visual de que a capa é clicável,
+        sem adicionar texto ou botão.
+    */
+    .capa:active .conteudo {
+        transform: scale(0.985);
+    }
 
-  inset:-1px;
+    /*
+        Animação de saída.
+    */
+    .capa.abrindo .conteudo {
+        opacity: 0;
+        transform: scale(1.025);
+    }
 
-  border:1px solid rgba(255,255,255,.07);
+    .capa.abrindo {
+        pointer-events: none;
+    }
 
-  pointer-events:none;
+    @media (max-width: 480px) {
 
-  z-index:50;
-}
+        .nome {
+            font-size: 25px;
+            letter-spacing: 0.13em;
+        }
 
-/* ==================================================
-   CORPO PRINCIPAL
-================================================== */
+        .idade {
+            margin-top: 17px;
+            font-size: 9px;
+            letter-spacing: 0.48em;
+        }
 
-.corpo{
-  position:absolute;
-  inset:0;
-
-  overflow:hidden;
-
-  border-radius:2px;
-
-  background:
-    linear-gradient(
-      115deg,
-      #15233c 0%,
-      #0d1a31 28%,
-      #09152a 58%,
-      #071125 100%
-    );
-
-  border:1px solid rgba(190,201,218,.23);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.09),
-    inset 0 -18px 35px rgba(0,0,0,.30),
-    inset 15px 0 25px rgba(255,255,255,.018),
-    inset -15px 0 30px rgba(0,0,0,.16);
-
-  transform:translateZ(0);
-
-  z-index:1;
-}
-
-/* textura de papel */
-
-.corpo::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  opacity:.28;
-
-  background:
-    repeating-linear-gradient(
-      92deg,
-      rgba(255,255,255,.025) 0px,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    repeating-linear-gradient(
-      2deg,
-      rgba(0,0,0,.025) 0px,
-      rgba(0,0,0,.025) 1px,
-      transparent 1px,
-      transparent 5px
-    );
-
-  mix-blend-mode:soft-light;
-
-  pointer-events:none;
-}
-
-/* iluminação natural */
-
-.corpo::after{
-  content:"";
-
-  position:absolute;
-
-  width:120%;
-  height:75%;
-
-  left:-10%;
-  top:-35%;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(255,255,255,.07),
-      transparent 62%
-    );
-
-  pointer-events:none;
-}
-
-/* ==================================================
-   PARTE INTERNA / CARTÃO
-================================================== */
-
-.interior{
-  position:absolute;
-
-  left:7%;
-  right:7%;
-  top:9%;
-  bottom:7%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #111d31,
-      #081225
-    );
-
-  border:1px solid rgba(255,255,255,.06);
-
-  box-shadow:
-    inset 0 0 30px rgba(0,0,0,.45);
-
-  opacity:.35;
-
-  z-index:2;
-}
-
-/* ==================================================
-   ABA DO ENVELOPE
-================================================== */
-
-.aba{
-  position:absolute;
-
-  left:-1px;
-  right:-1px;
-  top:-1px;
-
-  height:57%;
-
-  transform-origin:50% 0%;
-
-  transform-style:preserve-3d;
-
-  transition:
-    transform 1.3s cubic-bezier(.18,.72,.18,1);
-
-  z-index:20;
-
-  backface-visibility:hidden;
-}
-
-/* face da aba */
-
-.aba-frente{
-  position:absolute;
-
-  inset:0;
-
-  clip-path:
-    polygon(
-      0 0,
-      100% 0,
-      50% 100%
-    );
-
-  background:
-    linear-gradient(
-      140deg,
-      #182943 0%,
-      #11213a 30%,
-      #0c1930 65%,
-      #071125 100%
-    );
-
-  border-left:1px solid rgba(255,255,255,.08);
-  border-right:1px solid rgba(255,255,255,.05);
-
-  box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.08),
-    inset 0 -25px 35px rgba(0,0,0,.18);
-}
-
-/* textura da aba */
-
-.aba-frente::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    repeating-linear-gradient(
-      91deg,
-      rgba(255,255,255,.025) 0px,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-
-  opacity:.30;
-}
-
-/* sombra abaixo da aba */
-
-.aba-frente::after{
-  content:"";
-
-  position:absolute;
-
-  left:12%;
-  right:12%;
-  bottom:5%;
-
-  height:30%;
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(0,0,0,.42),
-      transparent 68%
-    );
-
-  filter:blur(12px);
-}
-
-/* ==================================================
-   LINHAS FÍSICAS DAS DOBRAS
-================================================== */
-
-.dobra-esquerda,
-.dobra-direita,
-.dobra-inferior{
-  position:absolute;
-
-  z-index:5;
-
-  pointer-events:none;
-}
-
-.dobra-esquerda{
-  left:0;
-  bottom:0;
-
-  width:50%;
-  height:51%;
-
-  clip-path:
-    polygon(
-      0 0,
-      100% 100%,
-      0 100%
-    );
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(23,39,64,.78),
-      rgba(4,12,26,.82)
-    );
-
-  border-right:1px solid rgba(255,255,255,.045);
-}
-
-.dobra-direita{
-  right:0;
-  bottom:0;
-
-  width:50%;
-  height:51%;
-
-  clip-path:
-    polygon(
-      100% 0,
-      100% 100%,
-      0 100%
-    );
-
-  background:
-    linear-gradient(
-      215deg,
-      rgba(20,36,61,.75),
-      rgba(4,12,26,.84)
-    );
-
-  border-left:1px solid rgba(255,255,255,.035);
-}
-
-.dobra-inferior{
-  left:0;
-  bottom:0;
-
-  width:100%;
-  height:51%;
-
-  clip-path:
-    polygon(
-      0 100%,
-      50% 0,
-      100% 100%
-    );
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(14,29,51,.80),
-      rgba(3,11,24,.92)
-    );
-
-  border-top:1px solid rgba(255,255,255,.045);
-}
-
-/* ==================================================
-   LACRE METÁLICO
-================================================== */
-
-.lacre{
-  position:absolute;
-
-  width:68px;
-  height:68px;
-
-  left:50%;
-  top:50%;
-
-  transform:
-    translate(-50%,-50%)
-    translateZ(28px);
-
-  border-radius:50%;
-
-  border:0;
-
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  z-index:40;
-
-  background:
-    radial-gradient(
-      circle at 28% 23%,
-      #ffffff 0%,
-      #e7ebef 12%,
-      #aab2bd 28%,
-      #697482 46%,
-      #f0f2f4 61%,
-      #8b95a2 76%,
-      #dfe3e7 100%
-    );
-
-  box-shadow:
-    0 7px 12px rgba(0,0,0,.52),
-    0 2px 3px rgba(0,0,0,.55),
-    inset 0 2px 2px rgba(255,255,255,.90),
-    inset 0 -4px 7px rgba(0,0,0,.40);
-
-  transition:
-    transform .25s ease,
-    filter .25s ease,
-    opacity .4s ease;
-}
-
-.lacre::before{
-  content:"";
-
-  position:absolute;
-  inset:6px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(48,57,68,.62);
-
-  box-shadow:
-    inset 0 1px 2px rgba(255,255,255,.80),
-    inset 0 -2px 4px rgba(0,0,0,.32);
-}
-
-.lacre::after{
-  content:"";
-
-  position:absolute;
-
-  width:28px;
-  height:9px;
-
-  left:15px;
-  top:10px;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,.42);
-
-  filter:blur(3px);
-
-  transform:rotate(-22deg);
-}
-
-.lacre:hover{
-  transform:
-    translate(-50%,-50%)
-    translateZ(28px)
-    scale(1.035);
-
-  filter:brightness(1.06);
-}
-
-/* monograma */
-
-.gv{
-  position:relative;
-
-  z-index:2;
-
-  color:#26303d;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size:25px;
-
-  font-weight:500;
-
-  letter-spacing:-3px;
-
-  transform:translateX(-1px);
-
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.75),
-    0 -1px 0 rgba(0,0,0,.35);
-}
-
-/* ==================================================
-   ABERTURA
-================================================== */
-
-.envelope.aberto .aba{
-  transform:rotateX(-168deg);
-}
-
-.envelope.aberto .lacre{
-  opacity:0;
-
-  pointer-events:none;
-
-  transform:
-    translate(-50%,-50%)
-    translateZ(28px)
-    scale(.8);
-}
-
-/* ==================================================
-   RESPONSIVO
-================================================== */
-
-@media(max-width:600px){
-
-  .envelope{
-    width:min(94vw,520px);
-  }
-
-  .lacre{
-    width:64px;
-    height:64px;
-  }
-
-  .gv{
-    font-size:24px;
-  }
-}
-
-@media(max-height:700px){
-
-  .envelope{
-    width:min(78vh,520px);
-  }
-}
+        .monograma {
+            margin-top: 48px;
+            font-size: 86px;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="cena">
+<div class="capa" id="capa">
 
-  <div class="sombra"></div>
+    <div class="conteudo">
 
-  <div class="envelope" id="envelope">
+        <div class="nome">
+            GABRIELLA VICTÓRIA
+        </div>
 
-    <div class="corpo">
+        <div class="idade">
+            15 ANOS
+        </div>
 
-      <div class="interior"></div>
-
-      <div class="dobra-esquerda"></div>
-      <div class="dobra-direita"></div>
-      <div class="dobra-inferior"></div>
+        <div class="monograma">
+            GV
+        </div>
 
     </div>
-
-    <div class="aba">
-      <div class="aba-frente"></div>
-    </div>
-
-    <button
-      class="lacre"
-      id="lacre"
-      aria-label="Abrir convite"
-    >
-      <span class="gv">GV</span>
-    </button>
-
-  </div>
 
 </div>
 
 <script>
+    const capa = document.getElementById("capa");
 
-const envelope =
-  document.getElementById("envelope");
+    capa.addEventListener("click", () => {
+        capa.classList.add("abrindo");
 
-const lacre =
-  document.getElementById("lacre");
-
-function abrirConvite(){
-
-  if(
-    !envelope.classList.contains("aberto")
-  ){
-
-    envelope.classList.add("aberto");
-
-  }
-
-}
-
-lacre.addEventListener(
-  "click",
-  abrirConvite
-);
-
-lacre.addEventListener(
-  "keydown",
-  function(event){
-
-    if(
-      event.key === "Enter" ||
-      event.key === " "
-    ){
-
-      event.preventDefault();
-
-      abrirConvite();
-
-    }
-
-  }
-);
-
+        /*
+            Aqui vamos colocar a abertura
+            para as próximas páginas do convite.
+        */
+    });
 </script>
 
 </body>
