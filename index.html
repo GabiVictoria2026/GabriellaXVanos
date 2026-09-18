@@ -1,291 +1,976 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gabriella Victória — 15 Anos</title>
 
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(22, 36, 57, 0.35) 0%,
+            rgba(7, 14, 25, 0.15) 42%,
+            rgba(2, 7, 14, 0) 75%
+        ),
+        #030811;
+
+    color: #eeeeec;
+}
+
+
+/* =========================================
+   CAPA
+========================================= */
+
+.capa {
+
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.018),
+            transparent 35%,
+            rgba(255,255,255,0.008)
+        );
+}
+
+
+/* textura extremamente discreta */
+
+.capa::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.14;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,0.16) 0.45px,
+            transparent 0.55px
+        );
+
+    background-size: 4px 4px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MOLDURA
+========================================= */
+
+.moldura {
+
+    position: absolute;
+
+    inset: 22px;
+
+    border: 1px solid rgba(205, 207, 208, 0.55);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* linhas superiores e inferiores */
+
+.linha-horizontal {
+
+    position: absolute;
+
+    left: 7%;
+    right: 7%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(220,220,218,0.75),
+            transparent
+        );
+
+    opacity: 0.75;
+}
+
+.linha-superior {
+    top: 22px;
+}
+
+.linha-inferior {
+    bottom: 22px;
+}
+
+
+/* =========================================
+   ORNAMENTOS
+========================================= */
+
+.ornamento {
+
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    z-index: 3;
+
+    opacity: 0.95;
+
+    pointer-events: none;
+}
+
+
+/* cantos */
+
+.canto-esquerdo-superior {
+    top: 10px;
+    left: 10px;
+}
+
+.canto-direito-superior {
+    top: 10px;
+    right: 10px;
+
+    transform: scaleX(-1);
+}
+
+.canto-esquerdo-inferior {
+    bottom: 10px;
+    left: 10px;
+
+    transform: scaleY(-1);
+}
+
+.canto-direito-inferior {
+    bottom: 10px;
+    right: 10px;
+
+    transform: scale(-1);
+}
+
+
+/* =========================================
+   CONTEÚDO CENTRAL
+========================================= */
+
+.conteudo {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 88%;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-1%);
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.7s ease;
+}
+
+
+/* =========================================
+   NOME
+========================================= */
+
+.nome {
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(42px, 8vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 0.92;
+
+    letter-spacing: 0.055em;
+
+    color: #e7e7e5;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.65),
+        0 0 14px rgba(210,215,220,0.08);
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   DIVISÓRIA
+========================================= */
+
+.divisoria {
+
+    width: min(430px, 67vw);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 24px;
+
+    opacity: 0.85;
+}
+
+.divisoria::before,
+.divisoria::after {
+
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(215,216,215,0.75)
+        );
+}
+
+.divisoria::after {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215,216,215,0.75),
+            transparent
+        );
+}
+
+
+.estrela {
+
+    width: 11px;
+    height: 11px;
+
+    position: relative;
+
+    transform: rotate(45deg);
+
+    background: linear-gradient(
+        135deg,
+        #777b80,
+        #ffffff,
+        #85898e
+    );
+
+    box-shadow:
+        0 0 7px rgba(220,220,220,0.3);
+}
+
+
+/* =========================================
+   15 ANOS
+========================================= */
+
+.idade {
+
+    margin-top: 18px;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: clamp(11px, 2.4vw, 15px);
+
+    font-weight: 300;
+
+    letter-spacing: 0.62em;
+
+    padding-left: 0.62em;
+
+    color: rgba(225,226,226,0.84);
+}
+
+
+/* =========================================
+   MONOGRAMA GV
+========================================= */
+
+.monograma-area {
+
+    position: relative;
+
+    width: 210px;
+    height: 180px;
+
+    margin-top: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.monograma {
+
+    position: relative;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 145px;
+
+    font-weight: 500;
+
+    line-height: 0.75;
+
+    letter-spacing: -0.18em;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            125deg,
+            #6d7176 0%,
+            #f1f1ef 24%,
+            #a5a8ab 43%,
+            #ffffff 56%,
+            #777b80 77%,
+            #d5d6d6 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    filter:
+        drop-shadow(
+            0 3px 3px rgba(0,0,0,0.75)
+        );
+}
+
+
+/* círculo/órbita do GV */
+
+.orbita {
+
+    position: absolute;
+
+    width: 190px;
+    height: 62px;
+
+    border: 1px solid rgba(224,225,225,0.75);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-18deg)
+        translateY(3px);
+
+    pointer-events: none;
+}
+
+
+.orbita::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    right: 18px;
+    top: -12px;
+
+    font-size: 17px;
+
+    color: #e8e8e6;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.4);
+}
+
+
+/* =========================================
+   TOQUE PARA ABRIR
+========================================= */
+
+.abrir {
+
+    position: absolute;
+
+    bottom: 52px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: rgba(225,226,226,0.82);
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.38em;
+
+    white-space: nowrap;
+
+    padding-left: 0.38em;
+}
+
+
+/* ícone de toque */
+
+.icone-toque {
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(225,226,226,0.75);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    animation:
+        pulsar 2.2s ease-in-out infinite;
+}
+
+
+/* dedo estilizado */
+
+.icone-toque::before {
+
+    content: "♧";
+
+    font-size: 22px;
+
+    transform: rotate(180deg);
+
+    color: rgba(235,235,233,0.9);
+}
+
+
+/* brilho externo */
+
+.icone-toque::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(220,220,220,0.12);
+
+    animation:
+        onda 2.2s ease-out infinite;
+}
+
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.78;
     }
 
-    html,
-    body {
-        width: 100%;
-        height: 100%;
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+
+@keyframes onda {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
     }
 
-    body {
-        overflow: hidden;
-        background:
-            radial-gradient(
-                circle at 50% 45%,
-                rgba(31, 45, 70, 0.30) 0%,
-                rgba(10, 17, 29, 0.12) 34%,
-                rgba(3, 7, 13, 0) 65%
-            ),
-            #050914;
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
 
-        font-family: Georgia, "Times New Roman", serif;
-        color: #e7e8e9;
+
+/* =========================================
+   EFEITO AO TOCAR
+========================================= */
+
+.capa.tocada .conteudo {
+
+    transform: scale(0.985);
+
+    opacity: 0.92;
+}
+
+.capa.tocada .abrir {
+
+    transform:
+        translateX(-50%)
+        scale(0.94);
+
+    opacity: 0.55;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .moldura {
+        inset: 17px;
     }
 
-    .capa {
-        position: relative;
-        width: 100%;
-        height: 100svh;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        cursor: pointer;
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(255,255,255,0.018) 0%,
-                transparent 35%,
-                rgba(255,255,255,0.012) 70%,
-                transparent 100%
-            );
+    .linha-superior {
+        top: 17px;
     }
 
-    /*
-        Textura extremamente sutil,
-        para o fundo não parecer um azul chapado.
-    */
-    .capa::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        opacity: 0.18;
-
-        background-image:
-            radial-gradient(
-                rgba(255,255,255,0.12) 0.5px,
-                transparent 0.6px
-            );
-
-        background-size: 4px 4px;
-
-        pointer-events: none;
+    .linha-inferior {
+        bottom: 17px;
     }
 
-    /*
-        Pequena iluminação central.
-        Nada de moldura ou elementos decorativos.
-    */
-    .capa::after {
-        content: "";
-        position: absolute;
-
-        width: min(70vw, 520px);
-        height: min(70vw, 520px);
-
-        border-radius: 50%;
-
-        background: rgba(115, 135, 165, 0.035);
-        filter: blur(80px);
-
-        pointer-events: none;
+    .ornamento {
+        width: 100px;
+        height: 100px;
     }
 
-    .conteudo {
-        position: relative;
-        z-index: 2;
+    .canto-esquerdo-superior,
+    .canto-direito-superior {
+        top: 7px;
+    }
 
-        width: min(88vw, 700px);
+    .canto-esquerdo-inferior,
+    .canto-direito-inferior {
+        bottom: 7px;
+    }
 
-        text-align: center;
+    .canto-esquerdo-superior,
+    .canto-esquerdo-inferior {
+        left: 7px;
+    }
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        transition:
-            opacity 0.7s ease,
-            transform 0.9s cubic-bezier(.22,.61,.36,1);
+    .canto-direito-superior,
+    .canto-direito-inferior {
+        right: 7px;
     }
 
     .nome {
-        font-family:
-            "Times New Roman",
-            Georgia,
-            serif;
 
-        font-size: clamp(27px, 6vw, 54px);
+        font-size: clamp(
+            35px,
+            9.2vw,
+            54px
+        );
 
-        font-weight: 400;
+        letter-spacing: 0.045em;
 
-        letter-spacing: 0.18em;
+        line-height: 0.95;
+    }
 
-        line-height: 1.15;
-
-        white-space: nowrap;
-
-        background:
-            linear-gradient(
-                105deg,
-                #85898d 0%,
-                #f4f4f2 18%,
-                #b8babe 36%,
-                #ffffff 50%,
-                #999da2 67%,
-                #e7e7e5 83%,
-                #777b80 100%
-            );
-
-        -webkit-background-clip: text;
-        background-clip: text;
-
-        color: transparent;
-
-        filter:
-            drop-shadow(0 1px 1px rgba(0,0,0,0.5));
+    .divisoria {
+        margin-top: 21px;
     }
 
     .idade {
-        margin-top: 20px;
 
-        font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
+        margin-top: 16px;
 
-        font-size: clamp(10px, 2.2vw, 14px);
-
-        font-weight: 400;
+        font-size: 10px;
 
         letter-spacing: 0.55em;
+    }
 
-        padding-left: 0.55em;
+    .monograma-area {
 
-        color: rgba(214, 216, 219, 0.78);
+        width: 190px;
+        height: 165px;
 
-        text-transform: uppercase;
+        margin-top: 38px;
     }
 
     .monograma {
-        margin-top: 58px;
-
-        font-family:
-            "Times New Roman",
-            Georgia,
-            serif;
-
-        font-size: clamp(70px, 17vw, 150px);
-
-        font-weight: 400;
-
-        line-height: 0.8;
-
-        letter-spacing: -0.08em;
-
-        background:
-            linear-gradient(
-                115deg,
-                #73777c 0%,
-                #e8e9e8 25%,
-                #8e9297 47%,
-                #f1f1ef 58%,
-                #73777c 82%,
-                #bfc1c3 100%
-            );
-
-        -webkit-background-clip: text;
-        background-clip: text;
-
-        color: transparent;
-
-        opacity: 0.92;
-
-        filter:
-            drop-shadow(
-                0 2px 3px rgba(0,0,0,0.65)
-            );
+        font-size: 128px;
     }
 
-    /*
-        Pequena indicação visual de que a capa é clicável,
-        sem adicionar texto ou botão.
-    */
-    .capa:active .conteudo {
-        transform: scale(0.985);
+    .orbita {
+        width: 175px;
+        height: 58px;
     }
 
-    /*
-        Animação de saída.
-    */
-    .capa.abrindo .conteudo {
-        opacity: 0;
-        transform: scale(1.025);
+    .abrir {
+
+        bottom: 43px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.32em;
+
+        padding-left: 0.32em;
     }
 
-    .capa.abrindo {
-        pointer-events: none;
+    .icone-toque {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* =========================================
+   CELULARES MUITO PEQUENOS
+========================================= */
+
+@media (max-height: 700px) {
+
+    .monograma-area {
+        margin-top: 27px;
     }
 
-    @media (max-width: 480px) {
-
-        .nome {
-            font-size: 25px;
-            letter-spacing: 0.13em;
-        }
-
-        .idade {
-            margin-top: 17px;
-            font-size: 9px;
-            letter-spacing: 0.48em;
-        }
-
-        .monograma {
-            margin-top: 48px;
-            font-size: 86px;
-        }
+    .abrir {
+        bottom: 28px;
     }
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="capa" id="capa">
 
-    <div class="conteudo">
+
+    <!-- =====================================
+         MOLDURA
+    ====================================== -->
+
+    <div class="moldura"></div>
+
+    <div class="linha-horizontal linha-superior"></div>
+    <div class="linha-horizontal linha-inferior"></div>
+
+
+    <!-- =====================================
+         ORNAMENTO — CANTO SUPERIOR ESQUERDO
+    ====================================== -->
+
+    <svg
+        class="ornamento canto-esquerdo-superior"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <g
+            fill="none"
+            stroke="#d8d9d8"
+            stroke-width="1.2"
+            stroke-linecap="round"
+        >
+
+            <path d="M4 114 C18 88 16 55 38 30 C52 14 70 11 86 18"/>
+            
+            <path d="M10 97 C31 86 38 65 35 45 C32 28 40 16 56 10"/>
+
+            <path d="M22 72 C9 61 13 42 27 36 C42 29 52 37 48 49 C45 59 31 61 27 50"/>
+
+            <path d="M38 34 C45 23 60 21 66 30 C72 40 63 48 54 45"/>
+
+            <path d="M66 19 C78 12 93 17 96 28 C99 38 91 45 83 40"/>
+
+            <path d="M20 93 C29 100 43 96 46 86 C49 76 40 70 33 75"/>
+
+        </g>
+
+        <g fill="#dfe0de">
+
+            <circle cx="18" cy="103" r="1.5"/>
+            <circle cx="48" cy="24" r="1.3"/>
+            <circle cx="76" cy="14" r="1.4"/>
+
+        </g>
+
+    </svg>
+
+
+    <!-- =====================================
+         CANTO SUPERIOR DIREITO
+    ====================================== -->
+
+    <svg
+        class="ornamento canto-direito-superior"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <g
+            fill="none"
+            stroke="#d8d9d8"
+            stroke-width="1.2"
+            stroke-linecap="round"
+        >
+
+            <path d="M4 114 C18 88 16 55 38 30 C52 14 70 11 86 18"/>
+
+            <path d="M10 97 C31 86 38 65 35 45 C32 28 40 16 56 10"/>
+
+            <path d="M22 72 C9 61 13 42 27 36 C42 29 52 37 48 49 C45 59 31 61 27 50"/>
+
+            <path d="M38 34 C45 23 60 21 66 30 C72 40 63 48 54 45"/>
+
+            <path d="M66 19 C78 12 93 17 96 28 C99 38 91 45 83 40"/>
+
+            <path d="M20 93 C29 100 43 96 46 86 C49 76 40 70 33 75"/>
+
+        </g>
+
+    </svg>
+
+
+    <!-- =====================================
+         CANTO INFERIOR ESQUERDO
+    ====================================== -->
+
+    <svg
+        class="ornamento canto-esquerdo-inferior"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <g
+            fill="none"
+            stroke="#d8d9d8"
+            stroke-width="1.2"
+            stroke-linecap="round"
+        >
+
+            <path d="M4 114 C18 88 16 55 38 30 C52 14 70 11 86 18"/>
+
+            <path d="M10 97 C31 86 38 65 35 45 C32 28 40 16 56 10"/>
+
+            <path d="M22 72 C9 61 13 42 27 36 C42 29 52 37 48 49 C45 59 31 61 27 50"/>
+
+            <path d="M38 34 C45 23 60 21 66 30 C72 40 63 48 54 45"/>
+
+            <path d="M66 19 C78 12 93 17 96 28 C99 38 91 45 83 40"/>
+
+            <path d="M20 93 C29 100 43 96 46 86 C49 76 40 70 33 75"/>
+
+        </g>
+
+    </svg>
+
+
+    <!-- =====================================
+         CANTO INFERIOR DIREITO
+    ====================================== -->
+
+    <svg
+        class="ornamento canto-direito-inferior"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <g
+            fill="none"
+            stroke="#d8d9d8"
+            stroke-width="1.2"
+            stroke-linecap="round"
+        >
+
+            <path d="M4 114 C18 88 16 55 38 30 C52 14 70 11 86 18"/>
+
+            <path d="M10 97 C31 86 38 65 35 45 C32 28 40 16 56 10"/>
+
+            <path d="M22 72 C9 61 13 42 27 36 C42 29 52 37 48 49 C45 59 31 61 27 50"/>
+
+            <path d="M38 34 C45 23 60 21 66 30 C72 40 63 48 54 45"/>
+
+            <path d="M66 19 C78 12 93 17 96 28 C99 38 91 45 83 40"/>
+
+            <path d="M20 93 C29 100 43 96 46 86 C49 76 40 70 33 75"/>
+
+        </g>
+
+    </svg>
+
+
+    <!-- =====================================
+         CONTEÚDO
+    ====================================== -->
+
+    <main class="conteudo">
 
         <div class="nome">
             GABRIELLA VICTÓRIA
         </div>
 
+
+        <div class="divisoria">
+            <span class="estrela"></span>
+        </div>
+
+
         <div class="idade">
             15 ANOS
         </div>
 
-        <div class="monograma">
-            GV
+
+        <div class="monograma-area">
+
+            <div class="orbita"></div>
+
+            <div class="monograma">
+                GV
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         BOTÃO DE ABERTURA
+    ====================================== -->
+
+    <div class="abrir" id="abrir">
+
+        <div class="icone-toque"></div>
+
+        <div>
+            TOQUE PARA ABRIR
         </div>
 
     </div>
 
 </div>
 
+
 <script>
-    const capa = document.getElementById("capa");
 
-    capa.addEventListener("click", () => {
-        capa.classList.add("abrindo");
+const capa = document.getElementById("capa");
 
-        /*
-            Aqui vamos colocar a abertura
-            para as próximas páginas do convite.
-        */
-    });
+const abrir = document.getElementById("abrir");
+
+
+function tocarCapa() {
+
+    capa.classList.add("tocada");
+
+    setTimeout(() => {
+
+        capa.classList.remove("tocada");
+
+    }, 350);
+
+}
+
+
+/* Clique na capa */
+
+capa.addEventListener("click", tocarCapa);
+
+
+/* Clique especificamente no botão */
+
+abrir.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    tocarCapa();
+
+});
+
 </script>
 
 </body>
-</html>
+   </html>
