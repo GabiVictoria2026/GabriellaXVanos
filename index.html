@@ -14,6 +14,10 @@
 
 <style>
 
+/* =========================
+   BASE
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +32,7 @@ body {
 
 body {
     overflow: hidden;
-    background: #030811;
+    background: #020711;
     color: #eeeeec;
 }
 
@@ -38,31 +42,33 @@ body {
 ========================= */
 
 .capa {
+
     position: relative;
 
     width: 100%;
     height: 100svh;
 
+    overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    overflow: hidden;
     cursor: pointer;
 
     background:
         radial-gradient(
-            ellipse at 50% 43%,
-            rgba(37, 54, 79, .38) 0%,
+            ellipse at 50% 42%,
+            rgba(32, 49, 74, .40) 0%,
             rgba(13, 25, 43, .25) 28%,
-            rgba(5, 12, 22, .45) 62%,
-            #02070f 100%
+            rgba(5, 12, 22, .62) 65%,
+            #020711 100%
         ),
         linear-gradient(
-            135deg,
+            145deg,
             #07111f,
-            #020711 48%,
-            #07101c
+            #020711 50%,
+            #06101d
         );
 
     perspective: 1200px;
@@ -70,10 +76,11 @@ body {
 
 
 /* =========================
-   TEXTURA DE FUNDO
+   TEXTURA
 ========================= */
 
 .capa::before {
+
     content: "";
 
     position: absolute;
@@ -85,28 +92,40 @@ body {
 
     background:
         radial-gradient(
-            circle at 20% 30%,
-            rgba(255,255,255,.08) 0 1px,
-            transparent 1.5px
+            ellipse at 30% 20%,
+            rgba(255,255,255,.08),
+            transparent 38%
         ),
         radial-gradient(
-            circle at 80% 70%,
-            rgba(255,255,255,.055) 0 1px,
-            transparent 1.5px
+            ellipse at 75% 80%,
+            rgba(255,255,255,.05),
+            transparent 42%
         );
-
-    background-size:
-        7px 7px,
-        11px 11px;
 
     mix-blend-mode: screen;
 }
 
 
-/* textura tipo papel/veludo */
+/* textura fina */
 
-.capa::before {
-    filter: contrast(115%);
+.capa::after {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .08;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.6) .35px,
+            transparent .5px
+        );
+
+    background-size: 5px 5px;
 }
 
 
@@ -115,20 +134,22 @@ body {
 ========================= */
 
 .local-festa {
+
     position: absolute;
 
     z-index: 1;
 
-    width: min(510px, 72vw);
+    width: min(500px, 78vw);
 
-    right: -4%;
-    bottom: 2%;
+    right: -7%;
 
-    opacity: .14;
+    bottom: 1%;
+
+    opacity: .075;
 
     filter:
         grayscale(1)
-        brightness(1.65)
+        brightness(1.75)
         contrast(.72);
 
     mix-blend-mode: screen;
@@ -136,76 +157,8 @@ body {
     pointer-events: none;
 
     transition:
-        transform 1.2s cubic-bezier(.22,.61,.36,1),
-        opacity .8s ease;
-}
-
-
-/* leve máscara para integrar ao fundo */
-
-.local-festa::after {
-    content: "";
-}
-
-
-/* =========================
-   MOLDURA
-========================= */
-
-.moldura {
-    position: absolute;
-
-    inset: 22px;
-
-    border: 1px solid rgba(205,207,208,.60);
-
-    z-index: 3;
-
-    pointer-events: none;
-
-    transition:
-        opacity .9s ease,
-        transform 1s cubic-bezier(.22,.61,.36,1);
-}
-
-
-/* =========================
-   LINHAS
-========================= */
-
-.linha-horizontal {
-    position: absolute;
-
-    left: 7%;
-    right: 7%;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(220,220,218,.72),
-            transparent
-        );
-
-    opacity: .65;
-
-    pointer-events: none;
-
-    z-index: 3;
-
-    transition:
         opacity .8s ease,
-        transform .9s ease;
-}
-
-.linha-superior {
-    top: 22px;
-}
-
-.linha-inferior {
-    bottom: 22px;
+        transform 1.2s cubic-bezier(.22,.61,.36,1);
 }
 
 
@@ -214,6 +167,7 @@ body {
 ========================= */
 
 .ornamento {
+
     position: absolute;
 
     width: 135px;
@@ -221,67 +175,171 @@ body {
 
     z-index: 4;
 
-    opacity: .97;
+    opacity: .92;
 
     pointer-events: none;
 
     filter:
-        drop-shadow(0 0 2px rgba(255,255,255,.12));
+        drop-shadow(
+            0 0 2px rgba(255,255,255,.12)
+        );
 
     transition:
-        transform 1.05s cubic-bezier(.22,.61,.36,1),
+        transform 1s cubic-bezier(.22,.61,.36,1),
         opacity .8s ease;
 }
 
+
+/* superior esquerdo */
+
 .canto-esquerdo-superior {
-    top: 5px;
-    left: 5px;
+    top: 8px;
+    left: 7px;
 }
 
+
+/* superior direito */
+
 .canto-direito-superior {
-    top: 5px;
-    right: 5px;
+
+    top: 8px;
+    right: 7px;
+
     transform: scaleX(-1);
 }
 
+
+/* inferior esquerdo */
+
 .canto-esquerdo-inferior {
-    bottom: 5px;
-    left: 5px;
+
+    bottom: 8px;
+    left: 7px;
+
     transform: scaleY(-1);
 }
 
+
+/* inferior direito */
+
 .canto-direito-inferior {
-    bottom: 5px;
-    right: 5px;
+
+    bottom: 8px;
+    right: 7px;
+
     transform: scale(-1);
 }
 
 
 /* =========================
-   CONTEÚDO CENTRAL
+   GV PEQUENO
+========================= */
+
+.logo-topo {
+
+    position: absolute;
+
+    top: 54px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 7;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 47px;
+
+    font-weight: 500;
+
+    line-height: .8;
+
+    letter-spacing: -.14em;
+
+    padding-right: .14em;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            125deg,
+            #74787d,
+            #f1f1ef 30%,
+            #a2a5a8 48%,
+            #ffffff 58%,
+            #777b80 80%,
+            #d6d7d7
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    filter:
+        drop-shadow(
+            0 2px 2px rgba(0,0,0,.7)
+        );
+
+    opacity: .88;
+
+    transition:
+        opacity .6s ease,
+        transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+
+/* pequeno detalhe abaixo do GV */
+
+.logo-topo::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    bottom: -18px;
+
+    font-family: Georgia, serif;
+
+    font-size: 7px;
+
+    color: rgba(230,231,230,.58);
+}
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
 ========================= */
 
 .conteudo {
+
     position: relative;
 
     z-index: 6;
 
-    width: 88%;
-    max-width: 700px;
+    width: 90%;
 
     text-align: center;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
-    transform: translateY(-1%);
+    transform:
+        translateY(4%);
 
     transition:
-        transform 1s cubic-bezier(.22,.61,.36,1),
-        opacity .75s ease;
+        opacity .7s ease,
+        transform .9s cubic-bezier(.22,.61,.36,1);
 }
 
 
@@ -290,9 +348,18 @@ body {
 ========================= */
 
 .nome {
-    font-family: "Cormorant Garamond", Georgia, serif;
 
-    font-size: clamp(39px, 10vw, 68px);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            39px,
+            9.7vw,
+            64px
+        );
 
     font-weight: 400;
 
@@ -300,13 +367,14 @@ body {
 
     letter-spacing: .045em;
 
-    color: #e9e9e7;
+    color: #eeeeec;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,.7),
-        0 0 14px rgba(210,215,220,.08);
+        0 1px 2px rgba(0,0,0,.75),
+        0 0 14px rgba(220,225,230,.07);
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -320,228 +388,146 @@ body {
 
 
 /* =========================
-   DIVISÓRIA
+   DETALHE
 ========================= */
 
-.divisoria {
-    width: min(430px, 67vw);
+.detalhe {
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 15px;
-
-    margin-top: 25px;
-
-    opacity: .9;
-}
-
-.divisoria::before,
-.divisoria::after {
-    content: "";
+    width: 80px;
 
     height: 1px;
 
-    flex: 1;
+    margin-top: 23px;
+
+    position: relative;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(215,216,215,.78)
-        );
-}
-
-.divisoria::after {
-    background:
-        linear-gradient(
-            90deg,
-            rgba(215,216,215,.78),
+            rgba(220,221,220,.75),
             transparent
         );
 }
 
-.estrela {
-    width: 10px;
-    height: 10px;
+.detalhe::after {
 
-    position: relative;
+    content: "";
 
-    transform: rotate(45deg);
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 
     background:
         linear-gradient(
             135deg,
-            #777b80,
+            #8a8e93,
             #ffffff,
-            #85898e
+            #8b8f94
         );
 
     box-shadow:
-        0 0 7px rgba(220,220,220,.32);
+        0 0 7px rgba(255,255,255,.25);
 }
 
 
 /* =========================
-   TEXTO CONVIDA
+   CONVIDA VOCÊ
 ========================= */
 
 .convite-frase {
-    margin-top: 18px;
 
-    font-family: "Cormorant Garamond", Georgia, serif;
+    margin-top: 25px;
 
-    font-size: clamp(16px, 3.8vw, 21px);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            20px,
+            4.7vw,
+            27px
+        );
 
     font-weight: 300;
 
     font-style: italic;
 
-    letter-spacing: .08em;
+    letter-spacing: .075em;
 
-    color: rgba(225,226,226,.78);
+    color:
+        rgba(231,232,231,.88);
 
     text-shadow:
-        0 1px 3px rgba(0,0,0,.6);
+        0 1px 3px rgba(0,0,0,.7);
 }
 
 
 /* =========================
-   15 ANOS
+   15 ANOS — DESTAQUE
 ========================= */
 
 .idade {
-    margin-top: 9px;
 
-    font-family: "Montserrat", Arial, sans-serif;
+    margin-top: 8px;
 
-    font-size: clamp(11px, 2.4vw, 15px);
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            27px,
+            7vw,
+            44px
+        );
 
     font-weight: 300;
 
-    letter-spacing: .62em;
+    letter-spacing: .28em;
 
-    padding-left: .62em;
+    padding-left: .28em;
 
-    color: rgba(225,226,226,.88);
+    color: #f0f0ee;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.8),
+        0 0 16px rgba(220,225,230,.10);
 }
 
 
 /* =========================
-   MONOGRAMA GV
+   PEQUENO DETALHE ABAIXO
 ========================= */
 
-.monograma-area {
-    position: relative;
+.detalhe-baixo {
 
-    width: 215px;
-    height: 180px;
+    width: 46px;
 
-    margin-top: 35px;
+    height: 1px;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* letras GV */
-
-.monograma {
-    position: relative;
-
-    font-family: "Cormorant Garamond", Georgia, serif;
-
-    font-size: 137px;
-
-    font-weight: 500;
-
-    line-height: .7;
-
-    letter-spacing: -.17em;
-
-    padding-right: .17em;
-
-    color: transparent;
+    margin-top: 22px;
 
     background:
         linear-gradient(
-            125deg,
-            #6d7176 0%,
-            #f1f1ef 24%,
-            #a5a8ab 43%,
-            #ffffff 56%,
-            #777b80 77%,
-            #d5d6d6 100%
+            90deg,
+            transparent,
+            rgba(218,219,218,.55),
+            transparent
         );
 
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    filter:
-        drop-shadow(0 3px 3px rgba(0,0,0,.75));
-}
-
-
-/* órbita */
-
-.orbita {
-    position: absolute;
-
-    width: 190px;
-    height: 62px;
-
-    border:
-        1px solid rgba(224,225,225,.78);
-
-    border-radius: 50%;
-
-    transform:
-        rotate(-18deg)
-        translateY(3px);
-
-    pointer-events: none;
-}
-
-.orbita::after {
-    content: "✦";
-
-    position: absolute;
-
-    right: 16px;
-    top: -12px;
-
-    font-size: 17px;
-
-    color: #e8e8e6;
-
-    text-shadow:
-        0 0 8px rgba(255,255,255,.4);
-}
-
-
-/* detalhes laterais */
-
-.monograma-area::before,
-.monograma-area::after {
-    content: "·";
-
-    position: absolute;
-
-    color: rgba(225,226,226,.55);
-
-    font-size: 20px;
-}
-
-.monograma-area::before {
-    left: 3px;
-}
-
-.monograma-area::after {
-    right: 3px;
+    opacity: .65;
 }
 
 
@@ -550,37 +536,38 @@ body {
 ========================= */
 
 .abrir {
+
     position: absolute;
 
-    bottom: 50px;
     left: 50%;
 
-    transform: translateX(-50%);
+    bottom: 74px;
+
+    transform:
+        translateX(-50%);
 
     z-index: 8;
 
-    display: flex;
-    flex-direction: column;
+    color:
+        rgba(225,226,226,.62);
 
-    align-items: center;
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
 
-    color: rgba(225,226,226,.86);
-
-    font-family: "Montserrat", Arial, sans-serif;
-
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 300;
 
-    letter-spacing: .38em;
+    letter-spacing: .34em;
 
-    padding-left: .38em;
+    padding-left: .34em;
 
     white-space: nowrap;
 
     animation:
-        aparecer 1.2s ease both,
-        respirar 2.8s ease-in-out infinite 1.2s;
+        respirar 3s ease-in-out infinite;
 
     transition:
         opacity .45s ease,
@@ -593,81 +580,84 @@ body {
 ========================= */
 
 .capa.aberta .conteudo {
-    transform:
-        translateY(-1%)
-        scale(.94);
 
     opacity: 0;
+
+    transform:
+        translateY(4%)
+        scale(.95);
 }
 
-.capa.aberta .abrir {
+
+.capa.aberta .logo-topo {
+
     opacity: 0;
 
     transform:
         translateX(-50%)
-        translateY(15px);
+        translateY(-18px)
+        scale(.8);
 }
 
-.capa.aberta .moldura {
-    transform: scale(1.035);
+
+.capa.aberta .abrir {
 
     opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(18px);
 }
 
-
-/* local se afasta junto */
 
 .capa.aberta .local-festa {
-    transform:
-        translate(35px, 25px)
-        scale(1.06);
 
     opacity: 0;
+
+    transform:
+        translate(35px,25px)
+        scale(1.05);
 }
 
 
-/* cantos se afastam */
+/* =========================
+   ORNAMENTOS ABRINDO
+========================= */
 
 .capa.aberta .canto-esquerdo-superior {
+
     transform:
-        translate(-42px,-42px);
+        translate(-40px,-40px);
 }
 
 .capa.aberta .canto-direito-superior {
+
     transform:
         scaleX(-1)
-        translate(-42px,-42px);
+        translate(-40px,-40px);
 }
 
 .capa.aberta .canto-esquerdo-inferior {
+
     transform:
         scaleY(-1)
-        translate(-42px,-42px);
+        translate(-40px,-40px);
 }
 
 .capa.aberta .canto-direito-inferior {
+
     transform:
         scale(-1)
-        translate(-42px,-42px);
+        translate(-40px,-40px);
 }
 
 
-/* linhas */
+/* =========================
+   BRILHO DE ABERTURA
+========================= */
 
-.capa.aberta .linha-superior {
-    transform: translateY(-18px);
-    opacity: 0;
-}
+.capa.aberta::after {
 
-.capa.aberta .linha-inferior {
-    transform: translateY(18px);
-    opacity: 0;
-}
-
-
-/* brilho central */
-
-.capa::after {
     content: "";
 
     position: absolute;
@@ -680,10 +670,12 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.9);
+    background:
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 0 35px 12px rgba(220,225,230,.16);
+        0 0 35px 12px
+        rgba(220,225,230,.16);
 
     opacity: 0;
 
@@ -694,9 +686,7 @@ body {
     pointer-events: none;
 
     z-index: 20;
-}
 
-.capa.aberta::after {
     animation:
         brilhoAbertura .9s ease-out forwards;
 }
@@ -709,6 +699,7 @@ body {
 @keyframes brilhoAbertura {
 
     0% {
+
         opacity: 0;
 
         transform:
@@ -717,6 +708,7 @@ body {
     }
 
     35% {
+
         opacity: .75;
 
         transform:
@@ -725,6 +717,7 @@ body {
     }
 
     100% {
+
         opacity: 0;
 
         transform:
@@ -734,35 +727,15 @@ body {
 }
 
 
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateX(-50%)
-            translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
-}
-
-
 @keyframes respirar {
 
     0%,
     100% {
-        opacity: .72;
+        opacity: .50;
     }
 
     50% {
-        opacity: 1;
+        opacity: .72;
     }
 }
 
@@ -773,117 +746,112 @@ body {
 
 @media (max-width: 600px) {
 
-    .moldura {
-        inset: 17px;
-    }
-
-    .linha-superior {
-        top: 17px;
-    }
-
-    .linha-inferior {
-        bottom: 17px;
-    }
-
-
     .ornamento {
-        width: 112px;
-        height: 112px;
+
+        width: 108px;
+        height: 108px;
     }
+
 
     .canto-esquerdo-superior,
     .canto-direito-superior {
-        top: 3px;
+
+        top: 5px;
     }
+
 
     .canto-esquerdo-inferior,
     .canto-direito-inferior {
-        bottom: 3px;
+
+        bottom: 5px;
     }
 
-    .canto-esquerdo-superior,
-    .canto-esquerdo-inferior {
-        left: 3px;
+
+    .logo-topo {
+
+        top: 48px;
+
+        font-size: 42px;
     }
 
-    .canto-direito-superior,
-    .canto-direito-inferior {
-        right: 3px;
+
+    .conteudo {
+
+        transform:
+            translateY(3%);
     }
 
 
     .nome {
-        font-size: clamp(36px, 10.5vw, 54px);
 
-        line-height: .86;
+        font-size:
+            clamp(
+                35px,
+                10vw,
+                53px
+            );
 
         letter-spacing: .035em;
     }
 
 
-    .divisoria {
-        margin-top: 21px;
+    .detalhe {
+
+        margin-top: 20px;
+
+        width: 72px;
     }
 
 
     .convite-frase {
-        margin-top: 16px;
 
-        font-size: 17px;
+        margin-top: 22px;
+
+        font-size: 21px;
 
         letter-spacing: .055em;
     }
 
 
     .idade {
-        margin-top: 8px;
 
-        font-size: 10px;
+        margin-top: 7px;
 
-        letter-spacing: .55em;
+        font-size: 31px;
 
-        padding-left: .55em;
+        letter-spacing: .22em;
+
+        padding-left: .22em;
     }
 
 
-    .monograma-area {
-        width: 190px;
-        height: 165px;
+    .detalhe-baixo {
 
-        margin-top: 31px;
-    }
-
-
-    .monograma {
-        font-size: 123px;
-    }
-
-
-    .orbita {
-        width: 174px;
-        height: 57px;
+        margin-top: 18px;
     }
 
 
     .local-festa {
-        width: 92vw;
 
-        right: -24%;
+        width: 91vw;
 
-        bottom: 1%;
+        right: -28%;
 
-        opacity: .12;
+        bottom: 0;
+
+        opacity: .065;
     }
 
 
     .abrir {
-        bottom: 42px;
 
-        font-size: 9px;
+        bottom: 70px;
 
-        letter-spacing: .32em;
+        font-size: 8px;
 
-        padding-left: .32em;
+        letter-spacing: .30em;
+
+        padding-left: .30em;
     }
 }
 
@@ -894,16 +862,34 @@ body {
 
 @media (max-height: 700px) {
 
-    .monograma-area {
-        margin-top: 25px;
+    .logo-topo {
+
+        top: 36px;
     }
+
+
+    .conteudo {
+
+        transform:
+            translateY(1%);
+    }
+
 
     .convite-frase {
-        margin-top: 12px;
+
+        margin-top: 17px;
     }
 
+
+    .idade {
+
+        font-size: 29px;
+    }
+
+
     .abrir {
-        bottom: 28px;
+
+        bottom: 58px;
     }
 }
 
@@ -916,10 +902,7 @@ body {
 <div class="capa" id="capa">
 
 
-    <!-- =====================
-         ILUSTRAÇÃO DO LOCAL
-         ===================== -->
-
+    <!-- LOCAL DA FESTA -->
     <img
         class="local-festa"
         src="tropical-festa.png"
@@ -927,19 +910,9 @@ body {
     >
 
 
-    <!-- =====================
-         MOLDURA
-         ===================== -->
-
-    <div class="moldura"></div>
-
-    <div class="linha-horizontal linha-superior"></div>
-    <div class="linha-horizontal linha-inferior"></div>
-
-
-    <!-- =====================
+    <!-- =========================
          ORNAMENTO SUPERIOR ESQUERDO
-         ===================== -->
+    ========================== -->
 
     <svg
         class="ornamento canto-esquerdo-superior"
@@ -1091,21 +1064,30 @@ body {
     </svg>
 
 
-    <!-- =====================
-         CONTEÚDO
-         ===================== -->
+    <!-- =========================
+         GV PEQUENO
+    ========================== -->
+
+    <div class="logo-topo">
+        GV
+    </div>
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
 
     <main class="conteudo">
 
         <div class="nome">
+
             <span>GABRIELLA</span>
             <span>VICTÓRIA</span>
+
         </div>
 
 
-        <div class="divisoria">
-            <span class="estrela"></span>
-        </div>
+        <div class="detalhe"></div>
 
 
         <div class="convite-frase">
@@ -1118,26 +1100,19 @@ body {
         </div>
 
 
-        <div class="monograma-area">
-
-            <div class="orbita"></div>
-
-            <div class="monograma">
-                GV
-            </div>
-
-        </div>
+        <div class="detalhe-baixo"></div>
 
     </main>
 
 
-    <!-- =====================
-         ABRIR
-         ===================== -->
+    <!-- =========================
+         TOQUE PARA ABRIR
+    ========================== -->
 
-    <div class="abrir" id="abrir">
+    <div class="abrir">
         TOQUE PARA ABRIR
     </div>
+
 
 </div>
 
@@ -1156,21 +1131,15 @@ function abrirConvite() {
 
     capa.classList.add("aberta");
 
-    /*
-       Aqui futuramente entraremos
-       na próxima tela do convite.
-    */
-
     setTimeout(() => {
 
         abrindo = false;
 
     }, 1100);
-
 }
 
 
-/* funciona no celular e no computador */
+/* clique e toque */
 
 capa.addEventListener(
     "pointerup",
@@ -1180,4 +1149,5 @@ capa.addEventListener(
 </script>
 
 </body>
+
     </html>
