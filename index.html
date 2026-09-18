@@ -2,21 +2,39 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Gabriella Victória — 15 Anos</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+>
+
 
 <style>
 
-/* =========================
+/* =========================================================
    BASE
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -37,9 +55,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    CAPA
-========================= */
+========================================================= */
 
 .capa {
 
@@ -51,19 +69,22 @@ body {
     overflow: hidden;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
 
     background:
+
         radial-gradient(
             ellipse at 50% 42%,
-            rgba(32, 49, 74, .40) 0%,
-            rgba(13, 25, 43, .25) 28%,
-            rgba(5, 12, 22, .62) 65%,
+            rgba(34,51,76,.40) 0%,
+            rgba(14,27,46,.25) 30%,
+            rgba(5,12,22,.62) 68%,
             #020711 100%
         ),
+
         linear-gradient(
             145deg,
             #07111f,
@@ -75,27 +96,28 @@ body {
 }
 
 
-/* =========================
-   TEXTURA
-========================= */
+/* textura suave do fundo */
 
 .capa::before {
 
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
 
-    opacity: .16;
+    opacity: .13;
 
     background:
+
         radial-gradient(
-            ellipse at 30% 20%,
+            ellipse at 25% 20%,
             rgba(255,255,255,.08),
-            transparent 38%
+            transparent 40%
         ),
+
         radial-gradient(
             ellipse at 75% 80%,
             rgba(255,255,255,.05),
@@ -106,22 +128,24 @@ body {
 }
 
 
-/* textura fina */
+/* textura quase imperceptível */
 
 .capa::after {
 
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
 
-    opacity: .08;
+    opacity: .045;
 
     background-image:
+
         radial-gradient(
-            rgba(255,255,255,.6) .35px,
+            rgba(255,255,255,.7) .3px,
             transparent .5px
         );
 
@@ -129,9 +153,9 @@ body {
 }
 
 
-/* =========================
-   ILUSTRAÇÃO DO LOCAL
-========================= */
+/* =========================================================
+   FOTO DO TROPICAL — INTEGRADA AO FUNDO
+========================================================= */
 
 .local-festa {
 
@@ -139,107 +163,170 @@ body {
 
     z-index: 1;
 
-    width: min(500px, 78vw);
+    width: min(560px, 82vw);
 
-    right: -7%;
+    right: -9%;
+    bottom: -2%;
 
-    bottom: 1%;
-
-    opacity: .075;
+    opacity: .055;
 
     filter:
         grayscale(1)
-        brightness(1.75)
-        contrast(.72);
+        brightness(1.65)
+        contrast(.55)
+        blur(.15px);
 
     mix-blend-mode: screen;
 
     pointer-events: none;
 
-    transition:
-        opacity .8s ease,
-        transform 1.2s cubic-bezier(.22,.61,.36,1);
-}
 
+    /*
+       A imagem vai desaparecendo
+       gradualmente nas extremidades.
+    */
 
-/* =========================
-   ORNAMENTOS
-========================= */
+    -webkit-mask-image:
 
-.ornamento {
+        radial-gradient(
+            ellipse at 58% 58%,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,.85) 35%,
+            rgba(0,0,0,.45) 57%,
+            transparent 78%
+        );
 
-    position: absolute;
+    mask-image:
 
-    width: 135px;
-    height: 135px;
-
-    z-index: 4;
-
-    opacity: .92;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 0 2px rgba(255,255,255,.12)
+        radial-gradient(
+            ellipse at 58% 58%,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,.85) 35%,
+            rgba(0,0,0,.45) 57%,
+            transparent 78%
         );
 
     transition:
-        transform 1s cubic-bezier(.22,.61,.36,1),
-        opacity .8s ease;
+
+        opacity .8s ease,
+
+        transform
+        1.2s
+        cubic-bezier(.22,.61,.36,1);
 }
 
 
-/* superior esquerdo */
+/* =========================================================
+   BORDAS DECORATIVAS
+========================================================= */
 
-.canto-esquerdo-superior {
-    top: 8px;
-    left: 7px;
+.borda-lateral {
+
+    position: absolute;
+
+    top: 12%;
+    bottom: 12%;
+
+    width: 1px;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+
+            transparent 0%,
+
+            rgba(225,226,225,.08) 10%,
+
+            rgba(225,226,225,.38) 28%,
+
+            rgba(245,245,243,.58) 50%,
+
+            rgba(225,226,225,.38) 72%,
+
+            rgba(225,226,225,.08) 90%,
+
+            transparent 100%
+        );
+
+    opacity: .48;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(235,235,235,.16)
+        );
+
+    transition:
+
+        opacity .7s ease,
+
+        transform
+        1s
+        cubic-bezier(.22,.61,.36,1);
 }
 
 
-/* superior direito */
+.borda-esquerda {
+    left: 18px;
+}
 
-.canto-direito-superior {
-
-    top: 8px;
-    right: 7px;
-
-    transform: scaleX(-1);
+.borda-direita {
+    right: 18px;
 }
 
 
-/* inferior esquerdo */
+/* pequenos detalhes horizontais */
 
-.canto-esquerdo-inferior {
+.borda-lateral::before,
+.borda-lateral::after {
 
-    bottom: 8px;
-    left: 7px;
+    content: "";
 
-    transform: scaleY(-1);
+    position: absolute;
+
+    left: 50%;
+
+    width: 18px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(235,235,233,.65),
+            transparent
+        );
 }
 
 
-/* inferior direito */
+.borda-lateral::before {
+    top: 9%;
+}
 
-.canto-direito-inferior {
-
-    bottom: 8px;
-    right: 7px;
-
-    transform: scale(-1);
+.borda-lateral::after {
+    bottom: 9%;
 }
 
 
-/* =========================
-   GV PEQUENO
-========================= */
+/* =========================================================
+   GV
+========================================================= */
 
 .logo-topo {
 
     position: absolute;
 
-    top: 54px;
+    top: 51px;
+
     left: 50%;
 
     transform: translateX(-50%);
@@ -251,27 +338,28 @@ body {
         Georgia,
         serif;
 
-    font-size: 47px;
+    font-size: 43px;
 
     font-weight: 500;
 
     line-height: .8;
 
-    letter-spacing: -.14em;
+    letter-spacing: -.13em;
 
-    padding-right: .14em;
+    padding-right: .13em;
 
     color: transparent;
 
     background:
+
         linear-gradient(
             125deg,
-            #74787d,
+            #74787d 0%,
             #f1f1ef 30%,
             #a2a5a8 48%,
             #ffffff 58%,
             #777b80 80%,
-            #d6d7d7
+            #d6d7d7 100%
         );
 
     -webkit-background-clip: text;
@@ -279,18 +367,21 @@ body {
 
     filter:
         drop-shadow(
-            0 2px 2px rgba(0,0,0,.7)
+            0 2px 2px
+            rgba(0,0,0,.7)
         );
 
-    opacity: .88;
+    opacity: .82;
 
     transition:
+
         opacity .6s ease,
-        transform .8s cubic-bezier(.22,.61,.36,1);
+
+        transform
+        .8s
+        cubic-bezier(.22,.61,.36,1);
 }
 
-
-/* pequeno detalhe abaixo do GV */
 
 .logo-topo::after {
 
@@ -302,19 +393,19 @@ body {
 
     transform: translateX(-50%);
 
-    bottom: -18px;
+    bottom: -17px;
 
     font-family: Georgia, serif;
 
-    font-size: 7px;
+    font-size: 6px;
 
-    color: rgba(230,231,230,.58);
+    color: rgba(230,231,230,.48);
 }
 
 
-/* =========================
-   CONTEÚDO PRINCIPAL
-========================= */
+/* =========================================================
+   CONTEÚDO CENTRAL
+========================================================= */
 
 .conteudo {
 
@@ -334,18 +425,21 @@ body {
 
     justify-content: center;
 
-    transform:
-        translateY(4%);
+    transform: translateY(3%);
 
     transition:
+
         opacity .7s ease,
-        transform .9s cubic-bezier(.22,.61,.36,1);
+
+        transform
+        .9s
+        cubic-bezier(.22,.61,.36,1);
 }
 
 
-/* =========================
+/* =========================================================
    NOME
-========================= */
+========================================================= */
 
 .nome {
 
@@ -365,13 +459,24 @@ body {
 
     line-height: .84;
 
+    /*
+       Espaço entre GABRIELLA
+       e VICTÓRIA
+    */
+
+    gap: 8px;
+
     letter-spacing: .045em;
 
     color: #eeeeec;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,.75),
-        0 0 14px rgba(220,225,230,.07);
+
+        0 1px 2px
+        rgba(0,0,0,.75),
+
+        0 0 14px
+        rgba(220,225,230,.07);
 
     display: flex;
 
@@ -382,772 +487,78 @@ body {
     white-space: nowrap;
 }
 
+
 .nome span {
     display: block;
 }
 
 
-/* =========================
-   DETALHE
-========================= */
+/* =========================================================
+   BRILHO ABAIXO DO NOME
+========================================================= */
 
 .detalhe {
 
-    width: 80px;
+    position: relative;
+
+    width: 126px;
+
+    height: 20px;
+
+    margin-top: 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.detalhe::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 50%;
 
     height: 1px;
 
-    margin-top: 23px;
-
-    position: relative;
+    transform: translateY(-50%);
 
     background:
+
         linear-gradient(
             90deg,
-            transparent,
-            rgba(220,221,220,.75),
-            transparent
+
+            transparent 0%,
+
+            rgba(210,211,211,.12) 8%,
+
+            rgba(225,226,225,.68) 42%,
+
+            rgba(255,255,255,.95) 50%,
+
+            rgba(225,226,225,.68) 58%,
+
+            rgba(210,211,211,.12) 92%,
+
+            transparent 100%
         );
+
+    box-shadow:
+
+        0 0 8px
+        rgba(235,235,235,.22);
 }
+
 
 .detalhe::after {
 
     content: "";
 
-    position: absolute;
-
-    width: 7px;
-    height: 7px;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(45deg);
-
-    background:
-        linear-gradient(
-            135deg,
-            #8a8e93,
-            #ffffff,
-            #8b8f94
-        );
-
-    box-shadow:
-        0 0 7px rgba(255,255,255,.25);
-}
-
-
-/* =========================
-   CONVIDA VOCÊ
-========================= */
-
-.convite-frase {
-
-    margin-top: 25px;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            20px,
-            4.7vw,
-            27px
-        );
-
-    font-weight: 300;
-
-    font-style: italic;
-
-    letter-spacing: .075em;
-
-    color:
-        rgba(231,232,231,.88);
-
-    text-shadow:
-        0 1px 3px rgba(0,0,0,.7);
-}
-
-
-/* =========================
-   15 ANOS — DESTAQUE
-========================= */
-
-.idade {
-
-    margin-top: 8px;
-
-    font-family:
-        "Montserrat",
-        Arial,
-        sans-serif;
-
-    font-size:
-        clamp(
-            27px,
-            7vw,
-            44px
-        );
-
-    font-weight: 300;
-
-    letter-spacing: .28em;
-
-    padding-left: .28em;
-
-    color: #f0f0ee;
-
-    text-shadow:
-        0 1px 3px rgba(0,0,0,.8),
-        0 0 16px rgba(220,225,230,.10);
-}
-
-
-/* =========================
-   PEQUENO DETALHE ABAIXO
-========================= */
-
-.detalhe-baixo {
-
-    width: 46px;
-
-    height: 1px;
-
-    margin-top: 22px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(218,219,218,.55),
-            transparent
-        );
-
-    opacity: .65;
-}
-
-
-/* =========================
-   TOQUE PARA ABRIR
-========================= */
-
-.abrir {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 74px;
-
-    transform:
-        translateX(-50%);
-
-    z-index: 8;
-
-    color:
-        rgba(225,226,226,.62);
-
-    font-family:
-        "Montserrat",
-        Arial,
-        sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 300;
-
-    letter-spacing: .34em;
-
-    padding-left: .34em;
-
-    white-space: nowrap;
-
-    animation:
-        respirar 3s ease-in-out infinite;
-
-    transition:
-        opacity .45s ease,
-        transform .7s cubic-bezier(.22,.61,.36,1);
-}
-
-
-/* =========================
-   ABERTURA
-========================= */
-
-.capa.aberta .conteudo {
-
-    opacity: 0;
-
-    transform:
-        translateY(4%)
-        scale(.95);
-}
-
-
-.capa.aberta .logo-topo {
-
-    opacity: 0;
-
-    transform:
-        translateX(-50%)
-        translateY(-18px)
-        scale(.8);
-}
-
-
-.capa.aberta .abrir {
-
-    opacity: 0;
-
-    transform:
-        translateX(-50%)
-        translateY(18px);
-}
-
-
-.capa.aberta .local-festa {
-
-    opacity: 0;
-
-    transform:
-        translate(35px,25px)
-        scale(1.05);
-}
-
-
-/* =========================
-   ORNAMENTOS ABRINDO
-========================= */
-
-.capa.aberta .canto-esquerdo-superior {
-
-    transform:
-        translate(-40px,-40px);
-}
-
-.capa.aberta .canto-direito-superior {
-
-    transform:
-        scaleX(-1)
-        translate(-40px,-40px);
-}
-
-.capa.aberta .canto-esquerdo-inferior {
-
-    transform:
-        scaleY(-1)
-        translate(-40px,-40px);
-}
-
-.capa.aberta .canto-direito-inferior {
-
-    transform:
-        scale(-1)
-        translate(-40px,-40px);
-}
-
-
-/* =========================
-   BRILHO DE ABERTURA
-========================= */
-
-.capa.aberta::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.9);
-
-    box-shadow:
-        0 0 35px 12px
-        rgba(220,225,230,.16);
-
-    opacity: 0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.2);
-
-    pointer-events: none;
-
-    z-index: 20;
-
-    animation:
-        brilhoAbertura .9s ease-out forwards;
-}
-
-
-/* =========================
-   ANIMAÇÕES
-========================= */
-
-@keyframes brilhoAbertura {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.2);
-    }
-
-    35% {
-
-        opacity: .75;
-
-        transform:
-            translate(-50%,-50%)
-            scale(3);
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(18);
-    }
-}
-
-
-@keyframes respirar {
-
-    0%,
-    100% {
-        opacity: .50;
-    }
-
-    50% {
-        opacity: .72;
-    }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    .ornamento {
-
-        width: 108px;
-        height: 108px;
-    }
-
-
-    .canto-esquerdo-superior,
-    .canto-direito-superior {
-
-        top: 5px;
-    }
-
-
-    .canto-esquerdo-inferior,
-    .canto-direito-inferior {
-
-        bottom: 5px;
-    }
-
-
-    .logo-topo {
-
-        top: 48px;
-
-        font-size: 42px;
-    }
-
-
-    .conteudo {
-
-        transform:
-            translateY(3%);
-    }
-
-
-    .nome {
-
-        font-size:
-            clamp(
-                35px,
-                10vw,
-                53px
-            );
-
-        letter-spacing: .035em;
-    }
-
-
-    .detalhe {
-
-        margin-top: 20px;
-
-        width: 72px;
-    }
-
-
-    .convite-frase {
-
-        margin-top: 22px;
-
-        font-size: 21px;
-
-        letter-spacing: .055em;
-    }
-
-
-    .idade {
-
-        margin-top: 7px;
-
-        font-size: 31px;
-
-        letter-spacing: .22em;
-
-        padding-left: .22em;
-    }
-
-
-    .detalhe-baixo {
-
-        margin-top: 18px;
-    }
-
-
-    .local-festa {
-
-        width: 91vw;
-
-        right: -28%;
-
-        bottom: 0;
-
-        opacity: .065;
-    }
-
-
-    .abrir {
-
-        bottom: 70px;
-
-        font-size: 8px;
-
-        letter-spacing: .30em;
-
-        padding-left: .30em;
-    }
-}
-
-
-/* =========================
-   TELAS BAIXAS
-========================= */
-
-@media (max-height: 700px) {
-
-    .logo-topo {
-
-        top: 36px;
-    }
-
-
-    .conteudo {
-
-        transform:
-            translateY(1%);
-    }
-
-
-    .convite-frase {
-
-        margin-top: 17px;
-    }
-
-
-    .idade {
-
-        font-size: 29px;
-    }
-
-
-    .abrir {
-
-        bottom: 58px;
-    }
-}
-
-</style>
-</head>
-
-
-<body>
-
-<div class="capa" id="capa">
-
-
-    <!-- LOCAL DA FESTA -->
-    <img
-        class="local-festa"
-        src="tropical-festa.png"
-        alt=""
-    >
-
-
-    <!-- =========================
-         ORNAMENTO SUPERIOR ESQUERDO
-    ========================== -->
-
-    <svg
-        class="ornamento canto-esquerdo-superior"
-        viewBox="0 0 140 140"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-            fill="none"
-            stroke="#d8d9d8"
-            stroke-width="1.55"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-
-            <path d="M8 118 C22 103 23 82 18 62 C14 45 23 27 43 19"/>
-            <path d="M8 106 C28 101 39 87 39 67 C39 48 51 31 71 25"/>
-            <path d="M15 122 C37 117 55 105 61 88"/>
-            <path d="M20 54 C35 49 45 39 49 24"/>
-            <path d="M42 20 C56 17 67 10 72 4"/>
-
-            <path d="M30 88 C19 80 16 69 21 58 C29 67 34 77 30 88Z"/>
-            <path d="M43 72 C34 61 35 50 42 41 C49 52 50 63 43 72Z"/>
-            <path d="M56 55 C48 45 51 34 60 27 C65 39 64 48 56 55Z"/>
-
-            <path d="M62 88 C76 81 85 68 84 54"/>
-            <path d="M74 75 C89 71 99 60 101 46"/>
-            <path d="M83 57 C96 53 106 43 109 31"/>
-
-            <path d="M82 54 C75 43 78 34 87 28 C91 38 90 47 82 54Z"/>
-            <path d="M98 43 C91 33 95 23 104 18 C107 28 106 37 98 43Z"/>
-
-            <path d="M9 118 C25 120 40 126 50 137"/>
-            <path d="M20 108 C37 112 50 119 60 130"/>
-
-        </g>
-    </svg>
-
-
-    <!-- SUPERIOR DIREITO -->
-
-    <svg
-        class="ornamento canto-direito-superior"
-        viewBox="0 0 140 140"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-            fill="none"
-            stroke="#d8d9d8"
-            stroke-width="1.55"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-
-            <path d="M8 118 C22 103 23 82 18 62 C14 45 23 27 43 19"/>
-            <path d="M8 106 C28 101 39 87 39 67 C39 48 51 31 71 25"/>
-            <path d="M15 122 C37 117 55 105 61 88"/>
-            <path d="M20 54 C35 49 45 39 49 24"/>
-            <path d="M42 20 C56 17 67 10 72 4"/>
-
-            <path d="M30 88 C19 80 16 69 21 58 C29 67 34 77 30 88Z"/>
-            <path d="M43 72 C34 61 35 50 42 41 C49 52 50 63 43 72Z"/>
-            <path d="M56 55 C48 45 51 34 60 27 C65 39 64 48 56 55Z"/>
-
-            <path d="M62 88 C76 81 85 68 84 54"/>
-            <path d="M74 75 C89 71 99 60 101 46"/>
-            <path d="M83 57 C96 53 106 43 109 31"/>
-
-            <path d="M82 54 C75 43 78 34 87 28 C91 38 90 47 82 54Z"/>
-            <path d="M98 43 C91 33 95 23 104 18 C107 28 106 37 98 43Z"/>
-
-            <path d="M9 118 C25 120 40 126 50 137"/>
-            <path d="M20 108 C37 112 50 119 60 130"/>
-
-        </g>
-    </svg>
-
-
-    <!-- INFERIOR ESQUERDO -->
-
-    <svg
-        class="ornamento canto-esquerdo-inferior"
-        viewBox="0 0 140 140"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-            fill="none"
-            stroke="#d8d9d8"
-            stroke-width="1.55"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-
-            <path d="M8 118 C22 103 23 82 18 62 C14 45 23 27 43 19"/>
-            <path d="M8 106 C28 101 39 87 39 67 C39 48 51 31 71 25"/>
-            <path d="M15 122 C37 117 55 105 61 88"/>
-            <path d="M20 54 C35 49 45 39 49 24"/>
-            <path d="M42 20 C56 17 67 10 72 4"/>
-
-            <path d="M30 88 C19 80 16 69 21 58 C29 67 34 77 30 88Z"/>
-            <path d="M43 72 C34 61 35 50 42 41 C49 52 50 63 43 72Z"/>
-            <path d="M56 55 C48 45 51 34 60 27 C65 39 64 48 56 55Z"/>
-
-            <path d="M62 88 C76 81 85 68 84 54"/>
-            <path d="M74 75 C89 71 99 60 101 46"/>
-            <path d="M83 57 C96 53 106 43 109 31"/>
-
-            <path d="M82 54 C75 43 78 34 87 28 C91 38 90 47 82 54Z"/>
-            <path d="M98 43 C91 33 95 23 104 18 C107 28 106 37 98 43Z"/>
-
-            <path d="M9 118 C25 120 40 126 50 137"/>
-            <path d="M20 108 C37 112 50 119 60 130"/>
-
-        </g>
-    </svg>
-
-
-    <!-- INFERIOR DIREITO -->
-
-    <svg
-        class="ornamento canto-direito-inferior"
-        viewBox="0 0 140 140"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-            fill="none"
-            stroke="#d8d9d8"
-            stroke-width="1.55"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-
-            <path d="M8 118 C22 103 23 82 18 62 C14 45 23 27 43 19"/>
-            <path d="M8 106 C28 101 39 87 39 67 C39 48 51 31 71 25"/>
-            <path d="M15 122 C37 117 55 105 61 88"/>
-            <path d="M20 54 C35 49 45 39 49 24"/>
-            <path d="M42 20 C56 17 67 10 72 4"/>
-
-            <path d="M30 88 C19 80 16 69 21 58 C29 67 34 77 30 88Z"/>
-            <path d="M43 72 C34 61 35 50 42 41 C49 52 50 63 43 72Z"/>
-            <path d="M56 55 C48 45 51 34 60 27 C65 39 64 48 56 55Z"/>
-
-            <path d="M62 88 C76 81 85 68 84 54"/>
-            <path d="M74 75 C89 71 99 60 101 46"/>
-            <path d="M83 57 C96 53 106 43 109 31"/>
-
-            <path d="M82 54 C75 43 78 34 87 28 C91 38 90 47 82 54Z"/>
-            <path d="M98 43 C91 33 95 23 104 18 C107 28 106 37 98 43Z"/>
-
-            <path d="M9 118 C25 120 40 126 50 137"/>
-            <path d="M20 108 C37 112 50 119 60 130"/>
-
-        </g>
-    </svg>
-
-
-    <!-- =========================
-         GV PEQUENO
-    ========================== -->
-
-    <div class="logo-topo">
-        GV
-    </div>
-
-
-    <!-- =========================
-         CONTEÚDO PRINCIPAL
-    ========================== -->
-
-    <main class="conteudo">
-
-        <div class="nome">
-
-            <span>GABRIELLA</span>
-            <span>VICTÓRIA</span>
-
-        </div>
-
-
-        <div class="detalhe"></div>
-
-
-        <div class="convite-frase">
-            convida você
-        </div>
-
-
-        <div class="idade">
-            15 ANOS
-        </div>
-
-
-        <div class="detalhe-baixo"></div>
-
-    </main>
-
-
-    <!-- =========================
-         TOQUE PARA ABRIR
-    ========================== -->
-
-    <div class="abrir">
-        TOQUE PARA ABRIR
-    </div>
-
-
-</div>
-
-
-<script>
-
-const capa = document.getElementById("capa");
-
-let abrindo = false;
-
-function abrirConvite() {
-
-    if (abrindo) return;
-
-    abrindo = true;
-
-    capa.classList.add("aberta");
-
-    setTimeout(() => {
-
-        abrindo = false;
-
-    }, 1100);
-}
-
-
-/* clique e toque */
-
-capa.addEventListener(
-    "pointerup",
-    abrirConvite
-);
-
-</script>
-
-</body>
-
-    </html>
+    position
