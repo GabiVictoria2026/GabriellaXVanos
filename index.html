@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gabriella Victória — 15 anos</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 42%,
+            #263957 0%,
+            #111d31 42%,
+            #070d17 78%,
+            #03060b 100%
+        );
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.055),
+            transparent 58%
+        );
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.16;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.018) 0px,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+}
+
+.cena{
+
+    position:relative;
+
+    width:340px;
+
+    height:560px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.sombra{
+
+    position:absolute;
+
+    width:260px;
+
+    height:34px;
+
+    bottom:42px;
+
+    left:40px;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,0,0,.72);
+
+    filter:blur(20px);
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:300px;
+
+    height:450px;
+
+    filter:
+
+        drop-shadow(
+            0 30px 35px rgba(0,0,0,.60)
+        );
+
+    perspective:1400px;
+
+}
+
+.corpo{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    border-radius:4px;
+
+    border:
+        1px solid rgba(222,226,232,.72);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #1b2b45 0%,
+            #111f35 38%,
+            #091322 100%
+        );
+
+}
+
+.corpo::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            125deg,
+            rgba(255,255,255,.075),
+            transparent 30%,
+            transparent 70%,
+            rgba(255,255,255,.025)
+        );
+
+}
+
+.corpo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.18;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.025) 0px,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+}
+
+.moldura{
+
+    position:absolute;
+
+    inset:12px;
+
+    border:
+        1px solid rgba(213,218,226,.30);
+
+    z-index:2;
+
+    pointer-events:none;
+
+}
+
+.moldura::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+}
+
+.dobra-esquerda{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:300px;
+
+    height:270px;
+
+    z-index:4;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            50% 100%,
+            0 100%
+        );
+
+    background:
+
+        linear-gradient(
+            140deg,
+            #1d304b 0%,
+            #0a1423 78%
+        );
+
+    border-top:
+        1px solid rgba(219,224,231,.35);
+
+}
+
+.dobra-direita{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    width:300px;
+
+    height:270px;
+
+    z-index:4;
+
+    clip-path:
+
+        polygon(
+            100% 0,
+            50% 100%,
+            100% 100%
+        );
+
+    background:
+
+        linear-gradient(
+            220deg,
+            #1d304b 0%,
+            #0a1423 78%
+        );
+
+    border-top:
+        1px solid rgba(219,224,231,.35);
+
+}
+
+.dobra-inferior{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:300px;
+
+    height:225px;
+
+    z-index:5;
+
+    clip-path:
+
+        polygon(
+            0 100%,
+            50% 0,
+            100% 100%
+        );
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #162840,
+            #081220
+        );
+
+    border-top:
+        1px solid rgba(215,220,228,.30);
+
+}
+
+.aba{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:300px;
+
+    height:235px;
+
+    z-index:12;
+
+    transform-origin:50% 0%;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+
+        linear-gradient(
+            155deg,
+            #263a57 0%,
+            #1a2b45 44%,
+            #091526 100%
+        );
+
+    border-top:
+        1px solid rgba(240,242,245,.82);
+
+    transition:
+
+        transform 1.35s
+        cubic-bezier(.18,.78,.22,1),
+
+        opacity .8s ease;
+
+}
+
+.aba::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:1px;
+
+    left:25px;
+
+    right:25px;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.85),
+            transparent
+        );
+
+}
+
+.lacre{
+
+    position:absolute;
+
+    left:150px;
+
+    top:225px;
+
+    width:108px;
+
+    height:108px;
+
+    z-index:30;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+
+        radial-gradient(
+            circle at 27% 18%,
+            #ffffff 0%,
+            #f4f5f6 15%,
+            #d4d7dc 34%,
+            #969ba3 57%,
+            #666b73 72%,
+            #e5e7e9 100%
+        );
+
+    border:
+        1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+
+        0 15px 28px rgba(0,0,0,.65),
+
+        inset
+        0 2px 5px rgba(255,255,255,.95),
+
+        inset
+        0 -7px 11px rgba(0,0,0,.32);
+
+    transition:
+
+        transform .3s ease,
+
+        opacity .7s ease;
+
+}
+
+.lacre::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:7px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(49,53,59,.72);
+
+}
+
+.lacre::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:13px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(255,255,255,.60);
+
+}
+
+.gv{
+
+    position:relative;
+
+    width:75px;
+
+    height:75px;
+
+    z-index:3;
+
+}
+
+.gv span{
+
+    position:absolute;
+
+    font-family:
+
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-weight:bold;
+
+    font-size:58px;
+
+    line-height:1;
+
+    color:#292d33;
+
+    text-shadow:
+
+        0 1px 0 #ffffff,
+
+        0 -1px 0 rgba(0,0,0,.20);
+
+}
+
+.gv .g{
+
+    left:2px;
+
+    top:4px;
+
+}
+
+.gv .v{
+
+    left:28px;
+
+    top:9px;
+
+}
+
+.lacre:hover{
+
+    transform:
+
+        translate(-50%,-50%)
+        scale(1.045);
+
+}
+
+.lacre:active{
+
+    transform:
+
+        translate(-50%,-50%)
+        scale(.94);
+
+}
+
+.envelope.aberto .aba{
+
+    transform:
+        rotateX(-165deg);
+
+    opacity:.08;
+
+}
+
+.envelope.aberto .lacre{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+
+        translate(-50%,-50%)
+        scale(.65);
+
+}
+
+@media(max-width:350px){
+
+    .cena{
+
+        transform:scale(.88);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cena">
+
+    <div class="sombra"></div>
+
+    <div
+        class="envelope"
+        id="envelope"
+    >
+
+        <div class="corpo">
+
+            <div class="moldura"></div>
+
+            <div class="dobra-esquerda"></div>
+
+            <div class="dobra-direita"></div>
+
+            <div class="dobra-inferior"></div>
+
+        </div>
+
+        <div class="aba"></div>
+
+        <div
+            class="lacre"
+            id="lacre"
+            role="button"
+            tabindex="0"
+            aria-label="Abrir convite"
+        >
+
+            <div class="gv">
+
+                <span class="g">G</span>
+
+                <span class="v">V</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const envelope =
+    document.getElementById("envelope");
+
+const lacre =
+    document.getElementById("lacre");
+
+function abrirEnvelope(){
+
+    envelope.classList.add("aberto");
+
+}
+
+lacre.addEventListener(
+    "click",
+    abrirEnvelope
+);
+
+lacre.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter" ||
+            event.key === " "
+        ){
+
+            event.preventDefault();
+
+            abrirEnvelope();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+  </html>
