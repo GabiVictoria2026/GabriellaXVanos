@@ -9,9 +9,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+  rel="stylesheet"
+>
 
 <style>
+
+/* =========================================================
+   BASE
+========================================================= */
 
 * {
     margin: 0;
@@ -27,7 +34,7 @@ body {
 
 body {
     overflow: hidden;
-    background: #020711;
+    background: #02050a;
     color: #eeeeec;
 }
 
@@ -37,9 +44,13 @@ body {
 ========================================================= */
 
 .capa {
+
     position: relative;
+
     width: 100%;
+    height: 100vh;
     height: 100svh;
+
     overflow: hidden;
 
     display: flex;
@@ -48,67 +59,56 @@ body {
 
     cursor: pointer;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 42%,
-            rgba(34, 51, 76, .40) 0%,
-            rgba(14, 27, 46, .25) 30%,
-            rgba(5, 12, 22, .62) 68%,
-            #020711 100%
-        ),
-        linear-gradient(
-            145deg,
-            #07111f,
-            #020711 50%,
-            #06101d
-        );
-
-    perspective: 1200px;
+    background: #02050a;
 }
 
 
-/* textura extremamente discreta */
+/* =========================================================
+   FUNDO — CAMADA 0
+========================================================= */
 
-.capa::before {
-    content: "";
+.fundo {
 
     position: absolute;
+
     inset: 0;
 
-    pointer-events: none;
+    z-index: 0;
 
-    opacity: .13;
+    pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse at 25% 20%,
-            rgba(255,255,255,.08),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 75% 80%,
-            rgba(255,255,255,.05),
-            transparent 42%
+            ellipse at 50% 43%,
+            rgba(27, 38, 54, 0.30) 0%,
+            rgba(10, 17, 28, 0.18) 32%,
+            rgba(3, 7, 13, 0.55) 70%,
+            #02050a 100%
         );
+
 }
 
 
-/* granulação */
+/* =========================================================
+   TEXTURA — CAMADA 1
+========================================================= */
 
-.capa::after {
-    content: "";
+.textura {
 
     position: absolute;
+
     inset: 0;
+
+    z-index: 1;
 
     pointer-events: none;
 
-    opacity: .045;
+    opacity: 0.035;
 
     background-image:
         radial-gradient(
-            rgba(255,255,255,.7) .3px,
-            transparent .5px
+            rgba(255,255,255,0.65) 0.35px,
+            transparent 0.6px
         );
 
     background-size: 5px 5px;
@@ -116,33 +116,28 @@ body {
 
 
 /* =========================================================
-   FOTO DO TROPICAL
-   SEM MIX-BLEND
-   SEM MASK
+   FOTO DO TROPICAL — CAMADA 2
 ========================================================= */
 
 .local-festa {
 
     position: absolute;
 
-    z-index: 1;
+    z-index: 2;
 
     width: min(560px, 82vw);
 
     right: -9%;
     bottom: -2%;
 
-    opacity: .075;
+    opacity: 0.055;
 
     pointer-events: none;
 
     transition:
-        opacity .8s ease,
+        opacity 0.8s ease,
         transform 1.2s cubic-bezier(.22,.61,.36,1);
 }
-
-
-/* imagem neutra */
 
 .local-festa img {
 
@@ -151,62 +146,17 @@ body {
     width: 100%;
     height: auto;
 
-    /*
-       Preto e branco + pouca luminosidade.
-       Não mistura com o fundo.
-    */
-
     filter:
         grayscale(1)
-        brightness(.72)
-        contrast(.58);
+        brightness(0.55)
+        contrast(0.55);
 
-    opacity: .75;
-}
-
-
-/*
-   Escurece visualmente as bordas da própria área
-   da imagem, sem alterar o fundo da página.
-*/
-
-.local-festa::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            to left,
-            transparent 20%,
-            rgba(2,7,17,.35) 55%,
-            rgba(2,7,17,.78) 82%,
-            #020711 100%
-        ),
-
-        linear-gradient(
-            to top,
-            #020711 0%,
-            rgba(2,7,17,.72) 18%,
-            transparent 48%
-        ),
-
-        radial-gradient(
-            ellipse at center,
-            transparent 20%,
-            rgba(2,7,17,.25) 60%,
-            #020711 95%
-        );
+    opacity: 0.8;
 }
 
 
 /* =========================================================
-   LINHAS LATERAIS
+   LINHAS LATERAIS — CAMADA 4
 ========================================================= */
 
 .borda-lateral {
@@ -222,6 +172,8 @@ body {
 
     pointer-events: none;
 
+    opacity: 0.48;
+
     background:
         linear-gradient(
             to bottom,
@@ -233,8 +185,6 @@ body {
             rgba(225,226,225,.08) 90%,
             transparent 100%
         );
-
-    opacity: .48;
 
     filter:
         drop-shadow(
@@ -253,7 +203,6 @@ body {
 .borda-direita {
     right: 18px;
 }
-
 
 .borda-lateral::before,
 .borda-lateral::after {
@@ -288,7 +237,7 @@ body {
 
 
 /* =========================================================
-   LOGO GV
+   LOGO GV — CAMADA 6
 ========================================================= */
 
 .logo-topo {
@@ -300,7 +249,7 @@ body {
 
     transform: translateX(-50%);
 
-    z-index: 7;
+    z-index: 6;
 
     font-family:
         "Cormorant Garamond",
@@ -317,20 +266,147 @@ body {
 
     padding-right: .13em;
 
-    color: transparent;
+    color: #d8d9da;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.75),
+        0 0 8px rgba(255,255,255,.08);
+
+    opacity: .82;
+
+    transition:
+        opacity .6s ease,
+        transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+.logo-topo::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    bottom: -17px;
+
+    font-family: Georgia, serif;
+
+    font-size: 6px;
+
+    color: rgba(230,231,230,.48);
+}
+
+
+/* =========================================================
+   CONTEÚDO CENTRAL — CAMADA 6
+========================================================= */
+
+.conteudo {
+
+    position: relative;
+
+    z-index: 6;
+
+    width: 90%;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(3%);
+
+    transition:
+        opacity .7s ease,
+        transform .9s cubic-bezier(.22,.61,.36,1);
+}
+
+
+/* =========================================================
+   NOME
+========================================================= */
+
+.nome {
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(39px, 9.7vw, 64px);
+
+    font-weight: 400;
+
+    line-height: .84;
+
+    gap: 8px;
+
+    letter-spacing: .045em;
+
+    color: #eeeeec;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.75),
+        0 0 14px rgba(220,225,230,.07);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    white-space: nowrap;
+}
+
+.nome span {
+    display: block;
+}
+
+
+/* =========================================================
+   LINHA CENTRAL
+========================================================= */
+
+.detalhe {
+
+    position: relative;
+
+    width: 126px;
+    height: 20px;
+
+    margin-top: 21px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.detalhe::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 50%;
+
+    height: 1px;
+
+    transform: translateY(-50%);
 
     background:
         linear-gradient(
-            125deg,
-            #74787d 0%,
-            #f1f1ef 30%,
-            #a2a5a8 48%,
-            #ffffff 58%,
-            #777b80 80%,
-            #d6d7d7 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    filter
+            90deg,
+            transparent 0%,
+            rgba
