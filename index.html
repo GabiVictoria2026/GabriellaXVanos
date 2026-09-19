@@ -1,39 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gabriella Victória — 15 Anos</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
->
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
-    rel="stylesheet"
->
-
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   BASE
-========================================================= */
 
 * {
     margin: 0;
@@ -59,12 +37,9 @@ body {
 ========================================================= */
 
 .capa {
-
     position: relative;
-
     width: 100%;
     height: 100svh;
-
     overflow: hidden;
 
     display: flex;
@@ -74,7 +49,6 @@ body {
     cursor: pointer;
 
     background:
-
         radial-gradient(
             ellipse at 50% 42%,
             rgba(34, 51, 76, .40) 0%,
@@ -82,7 +56,6 @@ body {
             rgba(5, 12, 22, .62) 68%,
             #020711 100%
         ),
-
         linear-gradient(
             145deg,
             #07111f,
@@ -94,14 +67,12 @@ body {
 }
 
 
-/* textura suave */
+/* textura extremamente discreta */
 
 .capa::before {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -109,31 +80,25 @@ body {
     opacity: .13;
 
     background:
-
         radial-gradient(
             ellipse at 25% 20%,
             rgba(255,255,255,.08),
             transparent 40%
         ),
-
         radial-gradient(
             ellipse at 75% 80%,
             rgba(255,255,255,.05),
             transparent 42%
         );
-
-    mix-blend-mode: screen;
 }
 
 
-/* textura muito discreta */
+/* granulação */
 
 .capa::after {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -141,7 +106,6 @@ body {
     opacity: .045;
 
     background-image:
-
         radial-gradient(
             rgba(255,255,255,.7) .3px,
             transparent .5px
@@ -153,7 +117,8 @@ body {
 
 /* =========================================================
    FOTO DO TROPICAL
-   INTEGRADA AO FUNDO
+   SEM MIX-BLEND
+   SEM MASK
 ========================================================= */
 
 .local-festa {
@@ -171,15 +136,13 @@ body {
 
     pointer-events: none;
 
-    mix-blend-mode: screen;
-
     transition:
         opacity .8s ease,
         transform 1.2s cubic-bezier(.22,.61,.36,1);
 }
 
 
-/* imagem */
+/* imagem neutra */
 
 .local-festa img {
 
@@ -188,18 +151,24 @@ body {
     width: 100%;
     height: auto;
 
+    /*
+       Preto e branco + pouca luminosidade.
+       Não mistura com o fundo.
+    */
+
     filter:
         grayscale(1)
-        brightness(1.55)
-        contrast(.48);
+        brightness(.72)
+        contrast(.58);
 
-    opacity: .72;
+    opacity: .75;
 }
 
 
-/* =========================================================
-   DEGRADÊ SOBRE A FOTO
-========================================================= */
+/*
+   Escurece visualmente as bordas da própria área
+   da imagem, sem alterar o fundo da página.
+*/
 
 .local-festa::after {
 
@@ -207,38 +176,37 @@ body {
 
     position: absolute;
 
-    inset: -5%;
+    inset: 0;
 
     pointer-events: none;
 
     background:
-
         linear-gradient(
             to left,
-            transparent 30%,
-            rgba(2,7,17,.35) 58%,
-            rgba(2,7,17,.80) 82%,
+            transparent 20%,
+            rgba(2,7,17,.35) 55%,
+            rgba(2,7,17,.78) 82%,
             #020711 100%
         ),
 
         linear-gradient(
             to top,
             #020711 0%,
-            rgba(2,7,17,.75) 17%,
-            transparent 45%
+            rgba(2,7,17,.72) 18%,
+            transparent 48%
         ),
 
         radial-gradient(
             ellipse at center,
-            transparent 18%,
-            rgba(2,7,17,.30) 58%,
-            #020711 92%
+            transparent 20%,
+            rgba(2,7,17,.25) 60%,
+            #020711 95%
         );
 }
 
 
 /* =========================================================
-   BORDAS LATERAIS
+   LINHAS LATERAIS
 ========================================================= */
 
 .borda-lateral {
@@ -255,23 +223,114 @@ body {
     pointer-events: none;
 
     background:
-
         linear-gradient(
             to bottom,
-
             transparent 0%,
-
             rgba(225,226,225,.08) 10%,
-
             rgba(225,226,225,.38) 28%,
-
             rgba(245,245,243,.58) 50%,
-
             rgba(225,226,225,.38) 72%,
-
             rgba(225,226,225,.08) 90%,
-
             transparent 100%
         );
 
-    opacity: .48
+    opacity: .48;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(235,235,235,.16)
+        );
+
+    transition:
+        opacity .7s ease,
+        transform 1s cubic-bezier(.22,.61,.36,1);
+}
+
+.borda-esquerda {
+    left: 18px;
+}
+
+.borda-direita {
+    right: 18px;
+}
+
+
+.borda-lateral::before,
+.borda-lateral::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 18px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(235,235,233,.65),
+            transparent
+        );
+}
+
+.borda-lateral::before {
+    top: 9%;
+}
+
+.borda-lateral::after {
+    bottom: 9%;
+}
+
+
+/* =========================================================
+   LOGO GV
+========================================================= */
+
+.logo-topo {
+
+    position: absolute;
+
+    top: 51px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 7;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 43px;
+
+    font-weight: 500;
+
+    line-height: .8;
+
+    letter-spacing: -.13em;
+
+    padding-right: .13em;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            125deg,
+            #74787d 0%,
+            #f1f1ef 30%,
+            #a2a5a8 48%,
+            #ffffff 58%,
+            #777b80 80%,
+            #d6d7d7 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    filter
